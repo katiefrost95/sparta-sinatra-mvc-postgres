@@ -1,0 +1,19 @@
+<form action="/<%= @post.id %>" method="POST"> <!--goes to post create thing in controller-->
+  <div>
+    <label>Title</label>
+    <input type="text" name="title" placeholder="Enter a title" value="<%= @post.title %>">
+  </div>
+  <div>
+    <label>Body</label>
+    <textarea name="body" rows="8" cols="40" placeholder="The body of the post"><%= @post.body %></textarea>
+  </div>
+  <div>
+    <input type="submit" value="Save Post">
+  </div>
+  <!--only want method override in edit so do following. if post id not empty do this-->
+  <% if(@post.id != "") %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+
+</form>
+<!--cos we're using same form for new and edit we need to espablish two different methods cos at top its only posts so we need a put as well for edit-->
